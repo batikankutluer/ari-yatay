@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import matches from "./matches.json";
+import matches from "../matches.json";
 
 import Snowfall from "react-snowfall";
 import "./scrollbar.css";
@@ -34,7 +34,7 @@ export default function App({ version }: { version: string }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-red-900 h-full overflow-auto">
+    <div className="v1-container container mx-auto px-4 py-8 bg-red-900 h-full overflow-auto">
       <Snowfall />
       <h1 className="2xl:text-6xl text-4xl font-bold font-sans my-4 mb-10 text-red-100 text-center select-none">
         İTÜ Yatay - GPA Aracı
@@ -131,7 +131,7 @@ export default function App({ version }: { version: string }) {
               {results.map((program, index) => {
                 if (program?.fakulte) return;
                 return (
-                  <>
+                  <React.Fragment key={program?.programAdi + "-group-" + index}>
                     <Row
                       key={program?.programAdi + "3.Yarıyıl" + index}
                       selectedYear={selectedYear}
@@ -148,7 +148,7 @@ export default function App({ version }: { version: string }) {
                       userYKS={userYKS}
                       termSelection={termSelection}
                     />
-                  </>
+                  </React.Fragment>
                 );
               })}
             </table>

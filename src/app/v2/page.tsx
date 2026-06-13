@@ -1,6 +1,5 @@
 "use client";
-
-import "./v2/_globals.css";
+import "./_globals.css";
 
 import DemoPage from "@/app/demo/page";
 
