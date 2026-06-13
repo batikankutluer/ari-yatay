@@ -325,13 +325,13 @@ export default function DemoPage() {
                                                             key={`${group.name}-${entry.program}-${entry.semester}-${entry.english}`}
                                                             className={`program-row ${entry.english === 30 ? 'english-30-row' : entry.english === 100 ? 'english-100-row' : ''} ${entry.semester.startsWith('3') ? 'sem-3-row' : 'sem-5-row'}`}
                                                         >
-                                                            <td><span className="program-title">{entry.program}</span></td>
-                                                            <td>{entry.english}%</td>
-                                                            <td>{entry.semester.replace('.Yarıyıl', '')}</td>
-                                                            <td>{entry.quota}</td>
-                                                            <td>{entry.placed}</td>
-                                                            <td>{maxGpa}</td>
-                                                            <td>{minGpa}</td>
+                                                            <td data-label="Program"><span className="program-title">{entry.program}</span></td>
+                                                            <td data-label="İngilizce">{entry.english}%</td>
+                                                            <td data-label="Yarıyıl">{entry.semester.replace('.Yarıyıl', '')}</td>
+                                                            <td data-label="Kontenjan">{entry.quota}</td>
+                                                            <td data-label="Yerleşen">{entry.placed}</td>
+                                                            <td data-label="Tavan GPA">{maxGpa}</td>
+                                                            <td data-label="Taban GPA">{minGpa}</td>
                                                         </tr>
                                                     )
                                                 })}
@@ -378,16 +378,16 @@ export default function DemoPage() {
                                                     key={`${entry.facultyName}-${entry.program}-${entry.semester}-${entry.english}`}
                                                     className={`program-row ${entry.english === 30 ? 'english-30-row' : entry.english === 100 ? 'english-100-row' : ''} ${entry.semester.startsWith('3') ? 'sem-3-row' : 'sem-5-row'}`}
                                                 >
-                                                    <td>
+                                                    <td data-label="Program">
                                                         <span className="program-title">{entry.program}</span>
                                                         <span className="demo-faculty-subtext"> ({entry.facultyName})</span>
                                                     </td>
-                                                    <td>{entry.english}%</td>
-                                                    <td>{entry.semester.replace('.Yarıyıl', '')}</td>
-                                                    <td>{entry.quota}</td>
-                                                    <td>{entry.placed}</td>
-                                                    <td>{maxGpa}</td>
-                                                    <td>{minGpa}</td>
+                                                    <td data-label="İngilizce">{entry.english}%</td>
+                                                    <td data-label="Yarıyıl">{entry.semester.replace('.Yarıyıl', '')}</td>
+                                                    <td data-label="Kontenjan">{entry.quota}</td>
+                                                    <td data-label="Yerleşen">{entry.placed}</td>
+                                                    <td data-label="Tavan GPA">{maxGpa}</td>
+                                                    <td data-label="Taban GPA">{minGpa}</td>
                                                 </tr>
                                             )
                                         })
