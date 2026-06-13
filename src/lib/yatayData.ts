@@ -1,0 +1,187 @@
+/**
+ * Strict-typed İTÜ içi yatay geçiş asil listesi.
+ * Kaynak: https://www.sis.itu.edu.tr/TR/ogrenci/lisans/cap-yandal-yatay-gecis/202610/yatay-taban-tavan-202610.php
+ */
+
+import {
+  assertValidYatayFaculties,
+  faculty,
+  withScores,
+  withoutScores,
+  type Faculty,
+} from './yatayTypes';
+
+export type {
+  EnglishPercent,
+  Faculty,
+  ITUBolum,
+  MissingScoreReason,
+  ScoreFraction,
+  Semester,
+  YatayEntry,
+  YatayScores,
+} from './yatayTypes';
+
+export {
+  assertValidYatayEntry,
+  assertValidYatayFaculties,
+  faculty,
+  formatProgramLabel,
+  getMaxScore,
+  getMinScore,
+  ITUBolumClass,
+  withScores,
+  withoutScores,
+} from './yatayTypes';
+
+export const yatayFaculties2025: ReadonlyArray<Faculty> = [
+  faculty('İnşaat Fakültesi', [
+    withScores({ program: 'İnşaat Mühendisliği', semester: '3.Yarıyıl', quota: 5, placed: 5, english: 30, isKktc: false, maxScore: 0.87499, minScore: 0.80037 }),
+    withScores({ program: 'İnşaat Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 100, isKktc: false, maxScore: 0.94272, minScore: 0.80671 }),
+    withScores({ program: 'Çevre Mühendisliği', semester: '3.Yarıyıl', quota: 6, placed: 6, english: 30, isKktc: false, maxScore: 0.85239, minScore: 0.80984 }),
+    withoutScores({ program: 'Çevre Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Çevre Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 100, isKktc: false, maxScore: 0.81002, minScore: 0.79052 }),
+    withoutScores({ program: 'Çevre Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+    withoutScores({ program: 'Harita Mühendisliği', semester: '3.Yarıyıl', quota: 5, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Harita Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 0, english: 100, isKktc: false }),
+  ]),
+  faculty('Mimarlık Fakültesi', [
+    withScores({ program: 'Mimarlık', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.90647, minScore: 0.89729 }),
+    withScores({ program: 'Mimarlık', semester: '5.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.88152, minScore: 0.85811 }),
+    withScores({ program: 'Mimarlık', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 100, isKktc: false, maxScore: 0.97159, minScore: 0.89029 }),
+    withScores({ program: 'Mimarlık', semester: '5.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.86375, minScore: 0.86375 }),
+    withoutScores({ program: 'Şehir ve Bölge Planlaması', semester: '3.Yarıyıl', quota: 4, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Şehir ve Bölge Planlaması', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Şehir ve Bölge Planlaması', semester: '3.Yarıyıl', quota: 4, placed: 0, english: 100, isKktc: false }),
+    withoutScores({ program: 'Şehir ve Bölge Planlaması', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: false }),
+    withScores({ program: 'Endüstriyel Tasarım', semester: '3.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.87286, minScore: 0.87286 }),
+    withoutScores({ program: 'Endüstriyel Tasarım', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+    withScores({ program: 'İç Mimarlık', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.88773, minScore: 0.88354 }),
+    withScores({ program: 'İç Mimarlık', semester: '5.Yarıyıl', quota: 1, placed: 1, english: 30, isKktc: false, maxScore: 0.85314, minScore: 0.85314 }),
+    withoutScores({ program: 'Peyzaj Mimarlığı', semester: '3.Yarıyıl', quota: 3, placed: 0, english: 100, isKktc: false }),
+    withoutScores({ program: 'Peyzaj Mimarlığı', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+  ]),
+  faculty('Makina Fakültesi', [
+    withScores({ program: 'Makina Mühendisliği', semester: '3.Yarıyıl', quota: 7, placed: 7, english: 30, isKktc: false, maxScore: 0.96492, minScore: 0.89965 }),
+    withoutScores({ program: 'Makina Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+  ]),
+  faculty('Elektrik - Elektronik Fakültesi', [
+    withScores({ program: 'Elektronik ve Haberleşme Mühendisliği', semester: '3.Yarıyıl', quota: 5, placed: 5, english: 30, isKktc: false, maxScore: 0.99198, minScore: 0.97289 }),
+    withScores({ program: 'Elektronik ve Haberleşme Mühendisliği', semester: '5.Yarıyıl', quota: 5, placed: 5, english: 30, isKktc: false, maxScore: 0.92528, minScore: 0.88935 }),
+    withScores({ program: 'Elektronik ve Haberleşme Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 100, isKktc: false, maxScore: 0.9993, minScore: 0.96151 }),
+    withScores({ program: 'Elektronik ve Haberleşme Mühendisliği', semester: '5.Yarıyıl', quota: 4, placed: 1, english: 100, isKktc: false, maxScore: 0.81151, minScore: 0.81151 }),
+    withScores({ program: 'Elektrik Mühendisliği', semester: '3.Yarıyıl', quota: 5, placed: 5, english: 30, isKktc: false, maxScore: 0.91139, minScore: 0.89923 }),
+    withoutScores({ program: 'Elektrik Mühendisliği', semester: '5.Yarıyıl', quota: 4, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Elektrik Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.90966, minScore: 0.88282 }),
+    withoutScores({ program: 'Elektrik Mühendisliği', semester: '5.Yarıyıl', quota: 3, placed: 0, english: 100, isKktc: false }),
+    withScores({ program: 'Kontrol ve Otomasyon Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.98192, minScore: 0.94057 }),
+    withScores({ program: 'Kontrol ve Otomasyon Mühendisliği', semester: '5.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.87063, minScore: 0.86003 }),
+    withScores({ program: 'Kontrol ve Otomasyon Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.94979, minScore: 0.91642 }),
+    withoutScores({ program: 'Kontrol ve Otomasyon Mühendisliği', semester: '5.Yarıyıl', quota: 3, placed: 0, english: 100, isKktc: false }),
+    withoutScores({
+      program: 'Elektronik ve Haberleşme Mühendisliği UOLP (ABD-NJIT)',
+      semester: '3.Yarıyıl',
+      quota: 3,
+      placed: 0,
+      english: 100,
+      isKktc: false,
+    }),
+  ]),
+  faculty('Maden Fakültesi', [
+    withScores({ program: 'Maden Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 2, english: 30, isKktc: false, maxScore: 0.8336, minScore: 0.81119 }),
+    withoutScores({ program: 'Maden Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Jeoloji Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Jeoloji Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Jeofizik Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Jeofizik Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Petrol ve Doğalgaz Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.83798, minScore: 0.81195 }),
+    withoutScores({ program: 'Petrol ve Doğalgaz Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+    withoutScores({ program: 'Cevher Hazırlama Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 0, english: 30, isKktc: false }),
+    withoutScores({ program: 'Cevher Hazırlama Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+  ]),
+  faculty('Kimya - Metalurji Fakültesi', [
+    withScores({ program: 'Kimya Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.95189, minScore: 0.90805 }),
+    withScores({ program: 'Kimya Mühendisliği', semester: '5.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.83787, minScore: 0.81903 }),
+    withScores({ program: 'Metalurji ve Malzeme Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 30, isKktc: false, maxScore: 0.91078, minScore: 0.89838 }),
+    withoutScores({ program: 'Metalurji ve Malzeme Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Metalurji ve Malzeme Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 100, isKktc: false, maxScore: 0.90945, minScore: 0.87987 }),
+    withoutScores({ program: 'Metalurji ve Malzeme Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+    withScores({ program: 'Gıda Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.86775, minScore: 0.82923 }),
+  ]),
+  faculty('İşletme Fakültesi', [
+    withScores({ program: 'İşletme Mühendisliği', semester: '3.Yarıyıl', quota: 4, placed: 4, english: 100, isKktc: false, maxScore: 0.97243, minScore: 0.95858 }),
+    withoutScores({ program: 'İşletme Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: false }),
+    withScores({ program: 'Endüstri Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.9922, minScore: 0.97101 }),
+    withoutScores({ program: 'Endüstri Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Endüstri Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 100, isKktc: false, maxScore: 0.95954, minScore: 0.9522 }),
+    withScores({ program: 'Endüstri Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.86642, minScore: 0.86642 }),
+    withScores({ program: 'Ekonomi', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.91038, minScore: 0.86741 }),
+    withScores({ program: 'Ekonomi', semester: '5.Yarıyıl', quota: 2, placed: 2, english: 100, isKktc: false, maxScore: 0.88525, minScore: 0.74001 }),
+  ]),
+  faculty('Gemi İnşaatı ve Deniz Bilimleri Fakültesi', [
+    withScores({ program: 'Gemi İnşaatı ve Gemi Makineleri Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.90968, minScore: 0.89068 }),
+    withScores({ program: 'Gemi İnşaatı ve Gemi Makineleri Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.89371, minScore: 0.85454 }),
+    withScores({ program: 'Gemi ve Deniz Teknolojisi Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.86734, minScore: 0.8185 }),
+    withoutScores({ program: 'Gemi ve Deniz Teknolojisi Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+  ]),
+  faculty('Fen - Edebiyat Fakültesi', [
+    withScores({ program: 'Matematik Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.99052, minScore: 0.93717 }),
+    withScores({ program: 'Fizik Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 30, isKktc: false, maxScore: 0.92917, minScore: 0.90391 }),
+    withoutScores({ program: 'Fizik Mühendisliği', semester: '5.Yarıyıl', quota: 3, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Kimya', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.93499, minScore: 0.86966 }),
+    withoutScores({ program: 'Kimya', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Moleküler Biyoloji ve Genetik', semester: '3.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.88842, minScore: 0.88842 }),
+    withoutScores({ program: 'Moleküler Biyoloji ve Genetik', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+  ]),
+  faculty('Uçak ve Uzay Bilimleri Fakültesi', [
+    withScores({ program: 'Uçak Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.95513, minScore: 0.94713 }),
+    withScores({ program: 'Uçak Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 2, english: 30, isKktc: false, maxScore: 0.84385, minScore: 0.82939 }),
+    withScores({ program: 'Uzay Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.9221, minScore: 0.91522 }),
+    withScores({ program: 'İklim Bilimi ve Meteoroloji Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 2, english: 30, isKktc: false, maxScore: 0.89297, minScore: 0.83893 }),
+  ]),
+  faculty('Türk Musikisi Devlet Konservatuvarı', [
+    withoutScores({ program: 'Ses Eğitimi', semester: '3.Yarıyıl', quota: 1, placed: 0, english: 0, isKktc: false }),
+    withoutScores({ program: 'Bestecilik', semester: '3.Yarıyıl', quota: 1, placed: 0, english: 0, isKktc: false }),
+    withoutScores({ program: 'Müzik Teknolojisi', semester: '3.Yarıyıl', quota: 1, placed: 0, english: 0, isKktc: false }),
+    withoutScores({ program: 'Müzikoloji', semester: '3.Yarıyıl', quota: 1, placed: 0, english: 0, isKktc: false }),
+    withoutScores({ program: 'Türk Halk Oyunları', semester: '3.Yarıyıl', quota: 1, placed: 0, english: 0, isKktc: false }),
+  ]),
+  faculty('Denizcilik Fakültesi', [
+    withScores({ program: 'Gemi Makinaları İşletme Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 1, english: 30, isKktc: false, maxScore: 0.85904, minScore: 0.85904 }),
+    withoutScores({ program: 'Gemi Makinaları İşletme Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+    withScores({ program: 'Deniz Ulaştırma İşletme Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 1, english: 30, isKktc: false, maxScore: 0.88919, minScore: 0.88919 }),
+    withoutScores({ program: 'Deniz Ulaştırma İşletme Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 30, isKktc: false }),
+  ]),
+  faculty('Tekstil Teknolojileri ve Tasarımı Fakültesi', [
+    withScores({ program: 'Tekstil Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 1, english: 100, isKktc: false, maxScore: 0.82935, minScore: 0.82935 }),
+  ]),
+  faculty('Bilgisayar ve Bilişim Fakültesi', [
+    withScores({ program: 'Bilgisayar Mühendisliği', semester: '3.Yarıyıl', quota: 3, placed: 3, english: 100, isKktc: false, maxScore: 0.99248, minScore: 0.9772 }),
+    withScores({ program: 'Bilgisayar Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.9557, minScore: 0.9557 }),
+    withScores({ program: 'Yapay Zeka ve Veri Mühendisliği', semester: '3.Yarıyıl', quota: 1, placed: 1, english: 100, isKktc: false, maxScore: 0.97938, minScore: 0.97938 }),
+    withoutScores({ program: 'Yapay Zeka ve Veri Mühendisliği', semester: '5.Yarıyıl', quota: 1, placed: 0, english: 100, isKktc: false }),
+  ]),
+  faculty('İTÜ-KKTC Eğitim-Araştırma Yerleşkeleri', [
+    withoutScores({ program: 'İTÜ-KKTC Gemi İnşaatı ve Gemi Makineleri Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Gemi İnşaatı ve Gemi Makineleri Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Gemi Makinaları İşletme Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Gemi Makinaları İşletme Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Deniz Ulaştırma İşletme Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Deniz Ulaştırma İşletme Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withScores({ program: 'İTÜ-KKTC Mimarlık', semester: '3.Yarıyıl', quota: 2, placed: 1, english: 100, isKktc: true, maxScore: 0.90137, minScore: 0.90137 }),
+    withoutScores({ program: 'İTÜ-KKTC Mimarlık', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Bilgisayar Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withScores({ program: 'İTÜ-KKTC Bilgisayar Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 1, english: 100, isKktc: true, maxScore: 0.84429, minScore: 0.84429 }),
+    withoutScores({ program: 'İTÜ-KKTC Ekonomi ve Finans', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withScores({ program: 'İTÜ-KKTC Ekonomi ve Finans', semester: '5.Yarıyıl', quota: 2, placed: 1, english: 100, isKktc: true, maxScore: 0.81914, minScore: 0.81914 }),
+    withScores({ program: 'İTÜ-KKTC Elektrik Elektronik Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 1, english: 100, isKktc: true, maxScore: 0.88305, minScore: 0.88305 }),
+    withoutScores({ program: 'İTÜ-KKTC Elektrik Elektronik Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC İç Mimarlık', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withoutScores({ program: 'İTÜ-KKTC Endüstri Mühendisliği', semester: '3.Yarıyıl', quota: 2, placed: 0, english: 100, isKktc: true }),
+    withScores({ program: 'İTÜ-KKTC Endüstri Mühendisliği', semester: '5.Yarıyıl', quota: 2, placed: 1, english: 100, isKktc: true, maxScore: 0.81028, minScore: 0.81028 }),
+  ]),
+] satisfies ReadonlyArray<Faculty>;
+
+assertValidYatayFaculties(yatayFaculties2025);
+
+export default yatayFaculties2025;

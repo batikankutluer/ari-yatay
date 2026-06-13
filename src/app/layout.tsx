@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "İTÜ Yatay",
-  applicationName: "İTÜ Yatay",
+  title: "Arı Yatay",
+  applicationName: "Arı Yatay",
   description:
     "İTÜ'de yatay geçiş için gereken GPA değerini hesaplamanıza yardımcı olan bir uygulamadır.",
   keywords: [
@@ -33,7 +33,15 @@ export const metadata: Metadata = {
     "yatay geçiş",
     "gpa",
     "itu",
+    "ari yatay",
+    "arı yatay",
+    "arıyatay"
   ],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -43,7 +51,7 @@ export const metadata: Metadata = {
     googleBot: "index, follow",
   },
   appleWebApp: {
-    title: "İTÜ Yatay",
+    title: "Arı Yatay",
     statusBarStyle: "default",
     capable: true,
   },

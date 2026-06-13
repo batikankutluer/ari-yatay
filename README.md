@@ -1,31 +1,53 @@
-# Bu proje `ITU öğrencileri` için yapılmıştır.
+# 🐝 Arı Yatay — İTÜ Kurum İçi Yatay Geçiş GPA Hesaplayıcı
 
-> # Bu site 'Resmi' bir site değildir!
+> **Resmi bir site değildir.** İTÜ ile herhangi bir bağlantısı bulunmamaktadır.
 
-> Bu site hala **prototip** aşamasındadır! 🔧
->
-> Eğer sitedeki verilerde bir sorun varsa çoğunlukla bunun **farkındayız.** Düzeltmek için çabalıyoruz.
->
-> `Sakin Kalın :)`
+YKS puanını gir, İTÜ'deki bölümlerin tavan ve taban GPA değerleriyle anında karşılaştır.
 
-## Sitenin amacı nedir?
-
-Site sizin yerleştiğiniz YKS puanınızı kullanarak, `ITU` tarafından 2024-2025 öğretim dönemi için açıklanan verileri sizin puanınızla işler ve kolayca **GPA** değeri olarak görüntülemenizi sağlar.
-
-> Geçici olarak şu an domain: [itu-yatay.vercel.app](https://itu-yatay.vercel.app)
-
-![website görüntüsü](./yilbasi.png)
+🌐 **[ariyatay.vercel.app](https://ariyatay.vercel.app)**
 
 ---
 
-> ### Sürüm: v1.0.6c
+![Arı Yatay ekran görüntüsü](./itugpa.png)
 
-- [x] Sadece ingilizce olan bölümler, filtrelenebiliyor.
-- [x] Makina mühendisliği data sorunu düzeltildi.
-- [x] Yarıyıllara göre filtreleme.
-- [x] Hatalar için email gönderme özelliği getirildi.
-- [x] UI biraz geliştirildi ve versiyonlama sistemi düzeltildi.
-- [x] Site Vercel platformunda analitik verileri incelenebilir hale getirildi.
-- [x] Yılbaşı Güncellemesi Eklendi!
-- [ ] Liste son halini aldı.
-- [ ] UI/UX Son halini aldı.
+---
+
+## Nedir?
+
+**Arı Yatay**, İTÜ'nün kurum içi yatay geçiş kontenjan verilerini kullanarak, öğrencilerin YKS puanlarına göre hangi bölümlere yatay geçiş yapabileceklerini görselleştiren bir araçtır.
+
+- YKS puanını ve giriş yılını gir
+- Tüm bölümlerin tavan / taban GPA değerlerini görüntüle
+- Bölüme, yarıyıla veya İngilizce oranına göre filtrele
+
+---
+
+## 🆕 2026 Güncellemesi
+
+İTÜ'nün **2026 kurum içi yatay geçiş kontenjan listesi** esas alınarak tavan ve taban GPA değerleri güncellendi.  
+Artık en güncel verilerle hesaplama yapabilirsin.
+
+---
+
+## Özellikler
+
+- [x] YKS puanına göre GPA hesaplama
+- [x] Bölüm adına göre arama / filtreleme
+- [x] Yarıyıla göre filtreleme (3. / 5. yarıyıl)
+- [x] Yalnızca İngilizce bölüm filtresi
+- [x] Tavan / taban GPA sütunlarına göre sıralama
+- [x] Eşit ağırlık desteği
+- [x] 2024, 2025 ve 2026 veri yılı desteği
+- [x] Geri bildirim maili
+
+---
+
+## Sürüm
+
+> **v2.0 — 2026 Güncellemesi**
+
+---
+
+## Uyarı
+
+> Bu hesaplayıcı prototip aşamasındadır. Bazı veriler hatalı veya yanıltıcı olabilir; son kontrollerinizi kendiniz yapınız.
