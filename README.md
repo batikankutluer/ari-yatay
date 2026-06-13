@@ -22,9 +22,9 @@ YKS puanını gir, İTÜ'deki bölümlerin tavan ve taban GPA değerleriyle anı
 
 ---
 
-## 🆕 2026 Güncellemesi
+## 🆕 Veri Güncellemesi
 
-İTÜ'nün **2026 kurum içi yatay geçiş kontenjan listesi** esas alınarak tavan ve taban GPA değerleri güncellendi.  
+İTÜ'nün **güncel kurum içi yatay geçiş kontenjan listesi** esas alınarak tavan ve taban GPA değerleri güncellendi.  
 Artık en güncel verilerle hesaplama yapabilirsin.
 
 ---
@@ -37,7 +37,7 @@ Artık en güncel verilerle hesaplama yapabilirsin.
 - [x] Yalnızca İngilizce bölüm filtresi
 - [x] Tavan / taban GPA sütunlarına göre sıralama
 - [x] Eşit ağırlık desteği
-- [x] 2024, 2025 ve 2026 veri yılı desteği
+- [x] 2023, 2024 ve 2025 veri yılı desteği
 - [x] Geri bildirim maili
 
 ---
