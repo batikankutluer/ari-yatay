@@ -937,3 +937,693 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   EXTENDED MODE
+   ══════════════════════════════════════════════════════════ */
+
+/* Gösterge badge */
+.demo-shell .extended-mode-badge {
+  position: fixed;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(7, 11, 18, 0.92);
+  border: 1px solid rgba(243, 199, 77, 0.45);
+  color: var(--demo-yellow);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  backdrop-filter: blur(8px);
+  animation: demo-fade-up 0.2s ease both;
+  pointer-events: none;
+}
+
+.demo-shell .extended-mode-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--demo-yellow);
+  box-shadow: 0 0 6px var(--demo-yellow);
+  animation: extended-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes extended-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.demo-shell .extended-mode-badge kbd {
+  display: inline-block;
+  background: rgba(243, 199, 77, 0.12);
+  border: 1px solid rgba(243, 199, 77, 0.3);
+  border-radius: 4px;
+  padding: 0 0.35rem;
+  font-family: inherit;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: rgba(243, 199, 77, 0.7);
+}
+
+/* Program hücresinin inner wrapper */
+.demo-shell .program-cell-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Program adı tüm boşluğu doldursun, buton sağa itilsin */
+.demo-shell .program-cell-inner .program-title {
+  flex: 1;
+}
+
+/* YKS info butonu */
+.demo-shell .yks-info-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(243, 199, 77, 0.1);
+  border: 1px solid rgba(243, 199, 77, 0.4);
+  color: var(--demo-yellow);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.18rem 0.45rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.demo-shell .yks-info-btn:hover {
+  background: rgba(243, 199, 77, 0.22);
+  border-color: rgba(243, 199, 77, 0.75);
+  transform: translateY(-1px);
+}
+
+.demo-shell .yks-info-btn:active {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   YKS MODAL
+   ══════════════════════════════════════════════════════════ */
+
+.yks-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 7, 12, 0.82);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: yks-overlay-in 0.18s ease both;
+}
+
+@keyframes yks-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.yks-modal {
+  position: relative;
+  background: #0c1422;
+  border: 1px solid rgba(125, 162, 214, 0.28);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(243, 199, 77, 0.08),
+    0 32px 80px rgba(0, 0, 0, 0.7);
+  animation: yks-modal-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes yks-modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Modal header ── */
+
+.yks-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid rgba(125, 162, 214, 0.14);
+  background: rgba(20, 52, 95, 0.18);
+  flex-shrink: 0;
+}
+
+.yks-modal-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.yks-modal-faculty {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--demo-yellow);
+  opacity: 0.75;
+}
+
+.yks-modal-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--demo-text);
+  line-height: 1.3;
+}
+
+.yks-modal-close {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(125, 162, 214, 0.2);
+  color: var(--demo-text-muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.yks-modal-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--demo-text);
+}
+
+/* ── Modal body (scrollable) ── */
+
+.yks-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0;
+}
+
+.yks-modal-section {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid rgba(125, 162, 214, 0.1);
+}
+
+.yks-modal-section:last-child {
+  border-bottom: none;
+}
+
+.yks-modal-section-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--demo-text-muted);
+}
+
+/* ── YKS puan tablosu ── */
+
+.yks-scores-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(125, 162, 214, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+
+.yks-scores-table th {
+  background: rgba(20, 52, 95, 0.5);
+  color: var(--demo-yellow);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  text-align: left;
+}
+
+.yks-scores-table td {
+  padding: 0.5rem 0.85rem;
+  color: var(--demo-text);
+  border-top: 1px solid rgba(125, 162, 214, 0.1);
+  font-variant-numeric: tabular-nums;
+}
+
+.yks-scores-table th:last-child,
+.yks-scores-table td:last-child {
+  text-align: right;
+}
+
+.yks-scores-table tr.yks-year-selected td {
+  background: rgba(243, 199, 77, 0.07);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.yks-year-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  background: rgba(243, 199, 77, 0.15);
+  border: 1px solid rgba(243, 199, 77, 0.35);
+  color: var(--demo-yellow);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  vertical-align: middle;
+}
+
+.yks-notfound {
+  color: var(--demo-text-muted);
+  opacity: 0.45;
+}
+
+/* ── Formül kutusu ── */
+
+.yks-formula-box {
+  background: rgba(8, 13, 22, 0.6);
+  border: 1px solid rgba(125, 162, 214, 0.14);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Matematiksel formül gösterimi */
+.yks-formula-equation {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.yks-formula-equation--small {
+  font-size: 0.78rem;
+}
+
+.yks-eq-lhs {
+  font-weight: 700;
+  color: var(--demo-text-muted);
+  white-space: nowrap;
+}
+
+.yks-eq-eq {
+  color: rgba(125, 162, 214, 0.6);
+  font-size: 1.1em;
+}
+
+.yks-eq-plus {
+  color: rgba(125, 162, 214, 0.6);
+  font-size: 1.1em;
+}
+
+.yks-eq-paren {
+  color: rgba(125, 162, 214, 0.5);
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+.yks-eq-frac-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.yks-eq-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  line-height: 1;
+}
+
+.yks-eq-num {
+  color: var(--demo-text);
+  font-weight: 600;
+  font-size: 0.82em;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.yks-eq-bar {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(125, 162, 214, 0.45);
+}
+
+.yks-eq-den {
+  color: var(--demo-text-muted);
+  font-size: 0.78em;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.yks-eq-coeff {
+  color: var(--demo-yellow);
+  font-weight: 700;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+.yks-formula-rule {
+  height: 1px;
+  background: rgba(125, 162, 214, 0.12);
+  margin: 0 -1.1rem;
+}
+
+.yks-formula-missing {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--demo-text-muted);
+  opacity: 0.65;
+  font-style: italic;
+}
+
+/* ── Hesaplama adımları ── */
+
+.yks-calc-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.yks-calc-block--sm {
+  gap: 0.25rem;
+}
+
+.yks-calc-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+}
+
+.yks-calc-row--derived {
+  border-top: 1px dashed rgba(125, 162, 214, 0.12);
+  padding-top: 0.3rem;
+  margin-top: 0.1rem;
+}
+
+.yks-calc-label {
+  color: var(--demo-text-muted);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.yks-calc-inline-eq {
+  color: rgba(125, 162, 214, 0.55);
+  font-size: 0.88em;
+}
+
+.yks-calc-val {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--demo-text);
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.yks-calc-val.highlight {
+  color: var(--demo-yellow);
+}
+
+.yks-result-intro {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--demo-text-muted);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ── Sonuç kartları (Tavan / Taban GPA) ── */
+
+.yks-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.yks-result-card {
+  border-radius: 8px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.yks-result-card--max {
+  background: rgba(20, 52, 95, 0.5);
+  border: 1px solid rgba(144, 202, 249, 0.25);
+}
+
+.yks-result-card--min {
+  background: rgba(20, 52, 95, 0.3);
+  border: 1px solid rgba(125, 162, 214, 0.18);
+}
+
+.yks-result-card-badge {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--demo-yellow);
+  opacity: 0.8;
+}
+
+.yks-result-card-yatay {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--demo-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.yks-result-value {
+  margin: 0.2rem 0 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Modal mobil ── */
+
+@media (max-width: 640px) {
+  .yks-modal {
+    max-height: 92vh;
+    border-radius: 12px 12px 0 0;
+    align-self: flex-end;
+    margin: 0 -1.5rem;
+    width: calc(100% + 3rem);
+  }
+
+  .yks-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .yks-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yks-formula-equation {
+    font-size: 0.78rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   YKS FORMULA DISPLAY (sade, değerler yerinde)
+   ══════════════════════════════════════════════════════════ */
+
+/* Ana formül satırı */
+.yks-formula-display {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  padding: 0.6rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.yks-fd-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--demo-text-muted);
+  white-space: nowrap;
+}
+
+.yks-fd-eq {
+  color: rgba(125, 162, 214, 0.6);
+  font-size: 1rem;
+}
+
+/* Kesir: num / den */
+.yks-fd-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  vertical-align: middle;
+  margin: 0 0.1rem;
+}
+
+.yks-fd-num,
+.yks-fd-den {
+  font-size: 0.82rem;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--demo-text-muted);
+}
+
+.yks-fd-num {
+  padding-bottom: 2px;
+}
+
+.yks-fd-den {
+  padding-top: 2px;
+}
+
+/* Gerçek değerler sarı */
+.yks-fd-val {
+  color: var(--demo-yellow);
+  font-weight: 700;
+}
+
+.yks-fd-bar {
+  display: block;
+  height: 1px;
+  width: 100%;
+  min-width: 1.5rem;
+  background: rgba(125, 162, 214, 0.5);
+}
+
+.yks-fd-coef {
+  font-size: 0.82rem;
+  color: var(--demo-text-muted);
+  white-space: nowrap;
+}
+
+.yks-fd-plus {
+  font-size: 0.95rem;
+  color: rgba(125, 162, 214, 0.55);
+}
+
+/* ── Case blokları (Tavan / Taban) ── */
+
+.yks-case {
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+}
+
+.yks-case + .yks-case {
+  margin-top: 0.6rem;
+}
+
+.yks-case--max {
+  background: rgba(20, 52, 95, 0.45);
+  border: 1px solid rgba(144, 202, 249, 0.2);
+}
+
+.yks-case--min {
+  background: rgba(20, 52, 95, 0.25);
+  border: 1px solid rgba(125, 162, 214, 0.15);
+}
+
+.yks-case-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.yks-case-badge {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--demo-yellow);
+  background: rgba(243, 199, 77, 0.1);
+  border: 1px solid rgba(243, 199, 77, 0.3);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.yks-case-sub {
+  font-size: 0.74rem;
+  color: var(--demo-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Hesaplama adımları ── */
+
+.yks-case-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.yks-step {
+  font-size: 0.78rem;
+  color: var(--demo-text-muted);
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  word-break: break-word;
+}
+
+.yks-step-val {
+  color: var(--demo-text);
+  font-weight: 700;
+}
+
+.yks-step--result {
+  margin-top: 0.2rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid rgba(125, 162, 214, 0.12);
+  color: var(--demo-text-muted);
+  font-size: 0.8rem;
+}
+
+.yks-step-gpa {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  margin-left: 0.2rem;
+}
+
